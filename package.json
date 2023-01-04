@@ -2,7 +2,7 @@
   "name": "react-typescript",
   "version": "1.0.0",
   "type": "module",
-  "description": "React TypeScript on Replit, using Vite bundler",
+  "description": "Simple To Do project using Vite + React + Yarn + Sass + React Icons + Json Server",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
