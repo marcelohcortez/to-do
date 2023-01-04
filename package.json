@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
     "server": "json-server --watch data/db.json --port 5000"
   },
   "keywords": [],
