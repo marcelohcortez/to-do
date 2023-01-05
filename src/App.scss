@@ -1,5 +1,251 @@
-main {
-  text-align: center;
-  vertical-align: center;
-  line-height: 100vh
+$color: #2471ff;
+$color-darker: #0A2463;
+$color-light-gray: #f1f1f1;
+$pure-white: #ffffff;
+$color-done: #D5101D;
+$speed: "0.25s";
+$transition: all #{$speed} cubic-bezier(0.310, -0.105, 0.430, 1.400);
+
+body{
+  margin: 0;
+
+  h1, h2{
+    margin: 0;
+    padding: 0;
+  }
+
+  main {
+    text-align: center;
+    font-family: sans-serif;
+    background-color: $color-light-gray;
+    margin: 0;
+    display: flex;
+    padding: 10px;
+    min-height: 100vh;
+    flex-flow: column;
+  
+    .loading {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+
+      img {
+        width: 300px;
+      }
+    }
+
+    header {
+      background-color: $color-darker;
+      color: white;
+      padding: 30px;
+      margin-bottom: 20px;
+    }
+
+    .app {
+      width: 100vw;
+      margin: 0 auto;
+      border-radius: 5px;
+      max-width: 480px;
+      padding: 10px;
+  
+      header {
+        padding: 1em;
+        border-radius: 5px;
+        color: $pure-white;
+        margin-bottom: 10px;
+    
+        h1 {
+          color: $color;
+        }
+      }
+
+      .form-block {
+        background-color: $color;
+        border-radius: 5px;
+
+        header {
+          background-color: $color-darker;
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+        form {
+          padding: 1em;
+          
+          .form-control {
+            display: flex;
+            flex-flow: column;
+  
+            .form-item {
+              display: flex;
+              flex-flow: column;
+              align-items: flex-start;
+  
+              label {
+                font-size: 1.2em;
+                color: $pure-white;
+              }
+  
+              input {
+                width: 100%;
+                border: none;
+                padding: 10px;
+                font-size: 1em;
+                margin-bottom: 20px;
+                box-sizing: border-box;
+                border-radius: 5px;
+              }
+              input[type="submit"] {
+                font-size: 1.5em;
+                font-weight: bold;
+                border-radius: 10px;
+                width: auto;
+                margin: 0 auto;
+                padding: 1em 1.5em;
+                cursor: pointer;
+                color: $color;
+              }
+            }
+
+            .button-holder {
+              position: relative;
+              height: 60px;
+            
+              .button {
+                background-color: $pure-white;
+                height: 60px;
+                line-height: 60px;
+                margin: auto;
+                color: $color;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                cursor: pointer;
+                overflow: hidden;
+                border-radius: 5px;
+                box-shadow: 0 0 20px 0 rgb(0 0 0 / 30%);
+                transition: $transition;
+                
+                span, .icon {
+                  display: block;
+                  height: 100%;
+                  text-align: center;
+                  position: absolute;
+                  top: 0;
+                }
+                
+                span {
+                  width: 72%;
+                  line-height: inherit;
+                  font-size: 22px;
+                  text-transform: uppercase;
+                  left: 0;
+                  transition: $transition;
+                  
+                  &:after {
+                    content: '';
+                    background-color: $color;
+                    width: 3px;
+                    height: 70%;
+                    position: absolute;
+                    top: 15%;
+                    right: -1px;
+                  }
+                }
+                
+                .icon {
+                  width: 28%;
+                  right: 0;
+                  transition: $transition;
+            
+                  svg {
+                    stroke-width: 0px;
+                    width: 2em;
+                    height: 2em;
+                    padding-top: 13px;
+                  }
+                }
+
+                &:hover {
+                  opacity: .9;
+
+                  span {
+                    left: -72%;
+                    opacity: 0;
+                  }
+                  
+                  .icon {
+                    width: 100%;
+                  }
+                }
+                
+                &:active {
+                  opacity: 1;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .tasks {
+        background-color: $color;
+        border-radius: 5px;
+        margin-top: 20px;
+
+        header {
+          background-color: $color-darker;
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+        
+        .tasks-list {
+          padding: 1em;
+
+          .no-task-found {
+            color: $pure-white;
+            font-size: 1.5em;
+            font-weight: bold;
+          }
+          .task { 
+            background-color: $pure-white;
+            border-radius: 5px;
+            padding: 0.5em;
+            margin-bottom: 10px;
+            text-align: left;
+            
+            &.done {
+              h3, p {
+                text-decoration: line-through;
+                color: $color-done;
+              }
+              .icon-edit {
+                color: $color-done;
+              }
+            }
+            .actions {
+              text-align: right;
+
+              .icon {
+                cursor: pointer;
+                margin-left: 15px;
+
+                svg {
+                  width: 1.5em;
+                  height: 1.5em;
+                }
+
+                :hover {
+                  color: $color-done;
+                }
+                
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
